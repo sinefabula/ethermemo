@@ -173,7 +173,7 @@ class EthermemoApp(rumps.App):
 
     def liked_show(self, sender):
         """Shows previously saved songs."""
-        tracks = "\n".join([str(track) for track in self._load_liked()])
+        tracks = "\n".join([str(track) for track in self._load_liked().tracks])
         self.track_list_dialogue.default_text = tracks
         self.track_list_dialogue.run()
 
