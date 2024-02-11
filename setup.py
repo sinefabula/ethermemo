@@ -1,19 +1,19 @@
 from setuptools import setup
 from make_icons import make_iconset
 
-VERSION = "0.1.0"
-APP = ["ethermem.py"]
+VERSION = "0.2.0"
+APP = ["ethermemo.py"]
 OPTIONS = {
     "argv_emulation": True,
     "plist": {
         "LSUIElement": True,
     },
     "packages": ["rumps", "pydantic"],
-    "iconfile": make_iconset("icon.png", "ethermem.iconset"),
+    "iconfile": make_iconset("icon.png", "ethermemo.iconset"),
 }
 
 setup(
-    name="ethermem",
+    name="ethermemo",
     description="macOS app to save track titles on the internet radio",
     version=VERSION,
     app=APP,
