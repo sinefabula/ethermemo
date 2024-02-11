@@ -24,7 +24,7 @@ class Track(BaseModel):
 
     def __str__(self):
         if self.comment:
-            comment = f' "{self.comment}'
+            comment = f' "{self.comment}"'
         else:
             comment = ""
         return f"{self.title}{comment}"
@@ -50,7 +50,7 @@ class Metadata:
 
     def update(self) -> Result:
         """Updates the song metadata if there is none or enough time
-        (`config.update_interval`) has passed since `last_udpate`."""
+        (`config.update_interval`) has passed since `last_update`."""
         now = int(time.time())
         if (
             self.last_update is None
@@ -157,7 +157,7 @@ class EthermemoApp(rumps.App):
         self.menu_now_playing.title = f"{prefix}{self.last_result.title}"
 
     def like(self, sender):
-        """Saves the song title do the file."""
+        """Saves the song title to the file."""
         if self.last_result.valid:
             self._save_liked(comment="")
 
@@ -181,7 +181,7 @@ class EthermemoApp(rumps.App):
         subprocess.call(["open", "-R", path])
 
     def change_station(self, sender):
-        """Invokes the dialogue window asking the user to enter ther URL to
+        """Invokes the dialogue window asking the user to enter the URL to
         a new radio station."""
         resp = self.change_station_dialogue.run()
         if resp.clicked:
