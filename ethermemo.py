@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from typing import List, Optional
 import requests
 import time
-from datetime import datetime
 import subprocess
 import os
 
@@ -24,12 +23,11 @@ class Track(BaseModel):
     stamp: int
 
     def __str__(self):
-        ts = datetime.fromtimestamp(self.stamp).strftime("%c")
         if self.comment:
             comment = f' "{self.comment}'
         else:
             comment = ""
-        return f"{ts} {self.title}{comment}"
+        return f"{self.title}{comment}"
 
 
 class SavedTracks(BaseModel):
